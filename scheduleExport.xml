@@ -1,0 +1,3 @@
+<schedule>
+<scheduledClass><class><name>Crossfit</name></class><instructor><firstName>Ionut</firstName></instructor><date><day>15</day><month>5</month><year>2020</year></date><time><hour>16</hour><minute>00</minute></time></scheduledClass><scheduledClass><class><name>Stretching</name></class><instructor><firstName>Maria</firstName></instructor><date><day>20</day><month>5</month><year>2020</year></date><time><hour>12</hour><minute>00</minute></time></scheduledClass><scheduledClass><class><name>TRX</name></class><instructor><firstName>Claudiu</firstName></instructor><date><day>26</day><month>5</month><year>2020</year></date><time><hour>18</hour><minute>00</minute></time></scheduledClass>
+</schedule>

@@ -1,0 +1,9 @@
+.importantButton {
+    -fx-background-color: #f24900;
+    -fx-font-weight: bold;
+    -fx-font-size:18px;
+}
+
+.menuButton {
+    -fx-font-weight: bold;
+}

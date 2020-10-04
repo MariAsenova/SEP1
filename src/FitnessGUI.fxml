@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+   <children>
+      <Pane prefHeight="53.0" prefWidth="1000.0" style="-fx-background-color: #12123A;">
+         <children>
+            <Pane prefHeight="53.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="9.0" prefHeight="35.0" prefWidth="150.0" text="20/5/2020" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="800.0" layoutY="1.0" prefHeight="53.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="104.0" layoutX="48.0" layoutY="10.0" onMouseClicked="#loadScreenSaver" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logoLight.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <VBox fx:id="menuVBox" layoutY="53.0" prefHeight="547.0" prefWidth="200.0" style="-fx-background-color: #12123A;">
+         <children>
+            <Button fx:id="overviewButton" mnemonicParsing="false" onAction="#loadOverviewPane" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #12123A;" styleClass="menuButton" stylesheets="@styles/styles.css" text="Overview" textFill="#f24900">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="instructorsButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadInstructorsPane" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #12123A;" styleClass="menuButton" stylesheets="@styles/styles.css" text="Instructors" textFill="#f24900">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="membersButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadMembersPane" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #12123A;" styleClass="menuButton" stylesheets="@styles/styles.css" text="Members" textFill="#f24900">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="classesButton" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onAction="#loadClassesPane" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #12123A;" styleClass="menuButton" stylesheets="@styles/styles.css" text="Classes" textFill="#f24900">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="scheduleButton" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onAction="#loadSchedulePane" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #12123A;" styleClass="menuButton" stylesheets="@styles/styles.css" text="Schedule" textFill="#f24900">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </VBox>
+      <Pane fx:id="screenSaverPane" layoutY="47.0" onMouseClicked="#loadOverviewPane" prefHeight="553.0" prefWidth="1000.0" style="-fx-background-color: #12123A;" visible="false">
+         <children>
+            <ImageView fitHeight="86.0" fitWidth="416.0" layoutX="365.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logoLight.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="240.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click anywhere to continue" wrappingWidth="520.71728515625">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="overviewPane" layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="802.0" visible="false">
+         <children>
+            <Text layoutX="48.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to VIAFit" wrappingWidth="352.71728515625">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="64.0" fitWidth="239.0" layoutX="123.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.png" />
+               </image>
+            </ImageView>
+            <GridPane alignment="CENTER" layoutX="564.0" layoutY="40.0" prefHeight="451.0" prefWidth="202.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="200.0" text="Current Members:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="area1" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="200.0" text="Instructors in ViaFit:" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="200.0" text="Current Classes:" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="area2" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="200.0" GridPane.rowIndex="3" />
+                  <TextField fx:id="area3" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="191.0" GridPane.rowIndex="5" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Pane fx:id="instructorsPane" layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="802.0">
+         <children>
+            <Button fx:id="registerInstructorButton" mnemonicParsing="false" onAction="#loadRegisterInstructorPane" prefHeight="51.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Register" textFill="#12123a">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="findEditInstructorButton" layoutX="400.0" mnemonicParsing="false" onAction="#loadFindInstructorPane" prefHeight="51.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Find and edit" textFill="#12123a">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Pane fx:id="registerInstructorPane" layoutY="51.0" prefHeight="497.0" prefWidth="802.0" visible="false">
+               <children>
+                  <Button fx:id="registerInstructorAddClassButton" layoutX="619.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#mouseClickOnAdd" prefHeight="25.0" prefWidth="65.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Add" />
+                  <Button fx:id="registerInstructorSaveButton" layoutX="370.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#saveAndRegisterInstructor" prefHeight="25.0" prefWidth="65.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Save" />
+                  <Label layoutX="170.0" layoutY="65.0" prefHeight="27.0" prefWidth="200.0" text="First name:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerInstructorFirstNameInput" focusTraversable="false" layoutX="395.0" layoutY="65.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="125.0" prefHeight="27.0" prefWidth="200.0" text="Last name:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerInstructorLastNameInput" focusTraversable="false" layoutX="395.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="185.0" prefHeight="27.0" prefWidth="200.0" text="Address:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerInstructorAddressInput" focusTraversable="false" layoutX="395.0" layoutY="185.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="245.0" prefHeight="27.0" prefWidth="200.0" text="E-mail:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerInstructorEmailInput" focusTraversable="false" layoutX="395.0" layoutY="245.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="305.0" prefHeight="27.0" prefWidth="200.0" text="Phone number:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerInstructorPhoneInput" focusTraversable="false" layoutX="395.0" layoutY="305.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="365.0" prefHeight="27.0" prefWidth="200.0" text="Instructor's classes:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerInstructorClassInput" focusTraversable="false" layoutX="395.0" layoutY="365.0" prefHeight="25.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="findInstructorPane" layoutY="51.0" prefHeight="497.0" prefWidth="802.0">
+               <children>
+                  <Button fx:id="searchInstructorByNameButton" mnemonicParsing="false" onAction="#loadSearchInstructorByNamePane" prefHeight="39.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Search By Name" textFill="#12123a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="searchInstructorByPhoneButton" layoutX="400.0" mnemonicParsing="false" onAction="#loadSearchInstructorByPhonePane" prefHeight="18.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Search By Phone Number" textFill="#12123a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Pane fx:id="searchInstructorByNamePane" layoutX="-1.0" layoutY="39.0" prefHeight="459.0" prefWidth="802.0" visible="false">
+                     <children>
+                        <Button fx:id="searchInstructorPaneButton" layoutX="326.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#searchInstructorByName" prefHeight="38.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Search" />
+                        <Label layoutX="170.0" layoutY="65.0" prefHeight="27.0" prefWidth="200.0" text="First name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="searchInstructorByNameFirstNameInput" focusTraversable="false" layoutX="395.0" layoutY="65.0" prefHeight="25.0" prefWidth="200.0" />
+                        <Label layoutX="170.0" layoutY="125.0" prefHeight="27.0" prefWidth="200.0" text="Last name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="searchInstructorByNameLastNameInput" focusTraversable="false" layoutX="395.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="searchInstructorByPhonePane" layoutX="-1.0" layoutY="39.0" prefHeight="459.0" prefWidth="802.0" visible="false">
+                     <children>
+                        <Button fx:id="searchInstructorButton" layoutX="326.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#searchInstructorByPhoneNumber" prefHeight="38.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Search" />
+                        <Label layoutX="170.0" layoutY="65.0" prefHeight="27.0" prefWidth="200.0" text="Phone number:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="searchInstructorByPhoneInput" focusTraversable="false" layoutX="395.0" layoutY="65.0" prefHeight="25.0" prefWidth="200.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="editInstructorPane" layoutX="-8.0" prefHeight="497.0" prefWidth="802.0">
+                     <children>
+                        <GridPane layoutX="198.0" layoutY="65.0" prefHeight="332.0" prefWidth="371.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="186.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="185.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="158.0" minHeight="0.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="198.0" minHeight="10.0" prefHeight="104.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="200.0" text="First name:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="editInstructorFirstNameInput" focusTraversable="false" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="editInstructorLastNameInput" focusTraversable="false" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="editInstructorAddressInput" focusTraversable="false" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="editInstructorEmailInput" focusTraversable="false" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="editInstructorPhoneInput" focusTraversable="false" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label prefHeight="27.0" prefWidth="200.0" text="Last name:" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="200.0" text="Address:" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="200.0" text="E-mail:" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="200.0" text="Instructor's classes:" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="315.0" prefHeight="27.0" prefWidth="200.0" text="Phone number:" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="editInstructorClassesInput" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <Button fx:id="editInstructorAddButton" layoutX="700.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#addInstructorClassListView" styleClass="importantButton" stylesheets="@styles/styles.css" text="Add" />
+                        <Button fx:id="editInstructorSaveButton" layoutX="381.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#saveEditedInstructor" styleClass="importantButton" stylesheets="@styles/styles.css" text="Save" />
+                        <Button fx:id="editInstructorDeleteButton" layoutX="462.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#deleteInstructor" styleClass="importantButton" stylesheets="@styles/styles.css" text="Delete" />
+                        <Button fx:id="editInstructorRemoveClassButton" layoutX="600.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#removeInstructorClassListView" styleClass="importantButton" stylesheets="@styles/styles.css" text="Remove" />
+                        <TextField fx:id="addClassToInstructorInput" layoutX="600.0" layoutY="372.0" prefHeight="25.0" prefWidth="160.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="membersPane" layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="802.0" stylesheets="@styles/styles.css" visible="false">
+         <children>
+            <Button fx:id="registerMemberButton" mnemonicParsing="false" onAction="#loadRegisterMemberPane" prefHeight="51.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Register" textFill="#12123a">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="findEditMemberButton" layoutX="400.0" mnemonicParsing="false" onAction="#loadFindMemberPane" prefHeight="51.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Find and edit" textFill="#12123a">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Pane fx:id="registerMemberPane" layoutY="51.0" prefHeight="497.0" prefWidth="802.0" visible="false">
+               <children>
+                  <Button fx:id="registerMemberSaveButton" layoutX="370.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#registerMember" prefHeight="25.0" prefWidth="65.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Save" />
+                  <Label layoutX="170.0" layoutY="65.0" prefHeight="27.0" prefWidth="200.0" text="First name:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerMemberFirstNameInput" focusTraversable="false" layoutX="395.0" layoutY="65.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="125.0" prefHeight="27.0" prefWidth="200.0" text="Last name:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerMemberLastNameInput" focusTraversable="false" layoutX="395.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="185.0" prefHeight="27.0" prefWidth="200.0" text="Address:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerMemberAddressInput" focusTraversable="false" layoutX="395.0" layoutY="185.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="245.0" prefHeight="27.0" prefWidth="200.0" text="E-mail:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerMemberEmailInput" focusTraversable="false" layoutX="395.0" layoutY="245.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="305.0" prefHeight="27.0" prefWidth="200.0" text="Phone number:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="registerMemberPhoneInput" focusTraversable="false" layoutX="395.0" layoutY="305.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="365.0" prefHeight="27.0" prefWidth="179.0" text="Type of membership:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="registerMemberMembershipInput" layoutX="395.0" layoutY="365.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="findMemberPane" layoutY="51.0" prefHeight="497.0" prefWidth="802.0" visible="false">
+               <children>
+                  <Button fx:id="searchMemberByNameButton" mnemonicParsing="false" onAction="#loadSearchMemberByNamePane" prefHeight="39.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Search By Name" textFill="#12123a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="searchMemberByPhoneButton" layoutX="400.0" mnemonicParsing="false" onAction="#loadSearchMemberByPhonePane" prefHeight="18.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Search By Phone Number" textFill="#12123a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Pane fx:id="searchMemberByNamePane" layoutY="39.0" prefHeight="459.0" prefWidth="802.0" visible="false">
+                     <children>
+                        <Button fx:id="searchMemberPaneButton" layoutX="326.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#searchMemberByName" prefHeight="38.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Search" />
+                        <Label layoutX="170.0" layoutY="65.0" prefHeight="30.0" prefWidth="200.0" text="First name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="searchMemberByNameFirstNameInput" focusTraversable="false" layoutX="395.0" layoutY="65.0" prefHeight="25.0" prefWidth="200.0" />
+                        <Label layoutX="170.0" layoutY="125.0" prefHeight="27.0" prefWidth="200.0" text="Last name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="searchMemberByNameLastNameInput" focusTraversable="false" layoutX="395.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="searchMemberByPhonePane" layoutY="39.0" prefHeight="459.0" prefWidth="802.0" visible="false">
+                     <children>
+                        <Button fx:id="searchMemberButton" layoutX="326.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#searchMemberByPhoneNumber" prefHeight="38.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Search" />
+                        <Label layoutX="170.0" layoutY="65.0" prefHeight="27.0" prefWidth="200.0" text="Phone number:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="searchMemberByPhoneInput" focusTraversable="false" layoutX="395.0" layoutY="65.0" prefHeight="25.0" prefWidth="200.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="editMemberPane" prefHeight="497.0" prefWidth="802.0" visible="false">
+                     <children>
+                        <Button fx:id="editMemberSaveButton" layoutX="310.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#saveMember" prefHeight="25.0" prefWidth="65.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Save" />
+                        <Button fx:id="editMemberDeleteButton" layoutX="413.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#deleteMember" prefHeight="39.0" prefWidth="80.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Delete" />
+                        <Label layoutX="170.0" layoutY="65.0" prefHeight="27.0" prefWidth="200.0" text="First name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="editMemberFirstNameInput" focusTraversable="false" layoutX="395.0" layoutY="65.0" prefHeight="25.0" prefWidth="200.0" />
+                        <Label layoutX="170.0" layoutY="125.0" prefHeight="27.0" prefWidth="200.0" text="Last name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="editMemberLastNameInput" focusTraversable="false" layoutX="395.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" />
+                        <Label layoutX="170.0" layoutY="185.0" prefHeight="27.0" prefWidth="200.0" text="Address:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="editMemberAddressInput" focusTraversable="false" layoutX="395.0" layoutY="185.0" prefHeight="25.0" prefWidth="200.0" />
+                        <Label layoutX="170.0" layoutY="245.0" prefHeight="27.0" prefWidth="200.0" text="E-mail:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="editMemberEmailInput" focusTraversable="false" layoutX="395.0" layoutY="245.0" prefHeight="25.0" prefWidth="200.0" />
+                        <Label layoutX="170.0" layoutY="305.0" prefHeight="27.0" prefWidth="200.0" text="Phone number:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="editMemberPhoneInput" focusTraversable="false" layoutX="395.0" layoutY="305.0" prefHeight="25.0" prefWidth="200.0" />
+                        <Label layoutX="170.0" layoutY="365.0" prefHeight="27.0" prefWidth="179.0" text="Type of membership:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="editMemberMembershipInput" layoutX="395.0" layoutY="365.0" prefWidth="200.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="classesPane" layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="802.0" visible="false">
+         <children>
+            <Button fx:id="addClassButton" mnemonicParsing="false" onAction="#loadAddClassPane" prefHeight="51.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Add" textFill="#12123a">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="findEditClassButton" layoutX="400.0" mnemonicParsing="false" onAction="#loadSearchClassPane" prefHeight="51.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Find and edit" textFill="#12123a">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Pane fx:id="addClassPane" layoutY="51.0" prefHeight="497.0" prefWidth="802.0">
+               <children>
+                  <Button fx:id="addClassSaveButton" layoutX="326.0" layoutY="210.0" mnemonicParsing="false" onAction="#searchMember" onMouseClicked="#saveAddedClasses" prefHeight="38.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Save" />
+                  <Label layoutX="170.0" layoutY="65.0" prefHeight="27.0" prefWidth="70.0" text="Name:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="addClassNameInput" focusTraversable="false" layoutX="395.0" layoutY="65.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="125.0" prefHeight="27.0" prefWidth="86.0" text="Capacity:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="addClassCapacityInput" focusTraversable="false" layoutX="395.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="searchClassPane" layoutY="51.0" prefHeight="497.0" prefWidth="802.0" visible="false">
+               <children>
+                  <Button fx:id="searchClassButton" layoutX="326.0" layoutY="125.0" mnemonicParsing="false" onAction="#searchMember" onMouseClicked="#searchClassesByName" prefHeight="27.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Search" />
+                  <Button fx:id="editClassSaveButton" layoutX="180.0" layoutY="370.0" mnemonicParsing="false" onAction="#searchMember" onMouseClicked="#saveEditedClass" prefHeight="27.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Save" />
+                  <Button fx:id="editClassRemoveButton" layoutX="420.0" layoutY="370.0" mnemonicParsing="false" onAction="#searchMember" onMouseClicked="#removeClass" prefHeight="25.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Delete" />
+                  <Label layoutX="170.0" layoutY="65.0" prefHeight="27.0" prefWidth="170.0" text="Name:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="searchClassNameInput" focusTraversable="false" layoutX="395.0" layoutY="65.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="250.0" prefHeight="27.0" prefWidth="70.0" text="Name:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ediClassNameInput" focusTraversable="false" layoutX="395.0" layoutY="250.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="170.0" layoutY="310.0" prefHeight="27.0" prefWidth="86.0" text="Capacity:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="editClassCapacityInput" focusTraversable="false" layoutX="395.0" layoutY="310.0" prefHeight="25.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="schedulePane" layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="802.0" visible="false">
+         <children>
+            <Button fx:id="scheduleClassButton" mnemonicParsing="false" onAction="#loadScheduleClassPane" prefHeight="51.0" prefWidth="400.0" style="-fx-background-color: #B8B8B8;" text="Schedule a class" textFill="#12123a">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="findEditScheduleButton" layoutX="400.0" mnemonicParsing="false" onAction="#loadScheduleDisplayEditExportPane" prefHeight="51.0" prefWidth="400.0" style="-fx-background-color: #b8b8b8;" text="Display, edit and export" textFill="#12123a">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </Button>
+            <Pane fx:id="scheduleClassPane" layoutX="-8.0" layoutY="51.0" prefHeight="497.0" prefWidth="802.0" visible="false">
+               <children>
+                  <TextField fx:id="scheduleClassMinuteInput" focusTraversable="false" layoutX="290.0" layoutY="238.0" prefHeight="25.0" prefWidth="70.0" />
+                  <Label layoutX="100.0" layoutY="167.0" prefHeight="27.0" prefWidth="70.0" text="Date:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="scheduleClassDateInput" layoutX="210.0" layoutY="168.0" prefHeight="25.0" prefWidth="150.0" />
+                  <TextField fx:id="scheduleClassHourInput" focusTraversable="false" layoutX="210.0" layoutY="238.0" prefHeight="25.0" prefWidth="70.0" />
+                  <Label layoutX="100.0" layoutY="237.0" prefHeight="27.0" prefWidth="50.0" text="Time:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="100.0" layoutY="297.0" prefHeight="27.0" prefWidth="86.0" text="Duration:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="280.0" layoutY="237.0" prefHeight="27.0" prefWidth="10.0" text=":">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="scheduleClassDurationInput" focusTraversable="false" layoutX="210.0" layoutY="298.0" prefHeight="25.0" prefWidth="80.0" />
+                  <Label layoutX="296.0" layoutY="297.0" prefHeight="27.0" prefWidth="70.0" text="minutes">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="446.0" layoutY="167.0" prefHeight="27.0" prefWidth="70.0" text="Class:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="scheduleClassClassInput" layoutX="552.0" layoutY="168.0" onAction="#comboBoxClass" prefWidth="150.0" />
+                  <Label layoutX="446.0" layoutY="237.0" prefHeight="27.0" prefWidth="86.0" text="Instructor:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="scheduleClassInstructorInput" layoutX="549.0" layoutY="238.0" prefWidth="150.0" />
+                  <Button fx:id="scheduleClassSaveButton" layoutX="549.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#schedule" prefHeight="38.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Schedule class" />
+               </children>
+            </Pane>
+            <Pane fx:id="scheduleDisplayEditExportPane" layoutY="51.0" prefHeight="497.0" prefWidth="802.0" visible="false">
+               <children>
+                  <Button fx:id="editScheduledClassButton" mnemonicParsing="false" onAction="#loadScheduleEditPane" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #b8b8b8;" text="Edit" textFill="#12123a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="removeScheduledClassPaneButton" layoutX="160.0" mnemonicParsing="false" onAction="#loadScheduleRemovePane" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #B8B8B8;" text="Remove" textFill="#12123a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="signUpMemberScheduledClassButton" layoutX="320.0" mnemonicParsing="false" onAction="#loadScheduleSignUpMemberPane" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #B8B8B8;" text="Sign up" textFill="#12123a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="cancelMemberScheduledClassButton" layoutX="480.0" mnemonicParsing="false" onAction="#loadScheduleCancelMemberPane" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #B8B8B8;" text=" Cancel" textFill="#12123a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="exportScheduledClassButton" layoutX="640.0" mnemonicParsing="false" onAction="#loadScheduleExportPane" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #B8B8B8;" text="Export" textFill="#12123a">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Pane fx:id="scheduleDisplayPane" layoutY="39.0" prefHeight="459.0" prefWidth="320.0" stylesheets="@styles/styles.css">
+                     <children>
+                        <Label layoutX="29.0" layoutY="95.0" prefHeight="27.0" prefWidth="70.0" text="To:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="searchScheduledClassToInput" layoutX="81.0" layoutY="95.0" />
+                        <Label layoutX="29.0" layoutY="40.0" prefHeight="27.0" prefWidth="70.0" text="From:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="searchScheduledClassFromInput" layoutX="81.0" layoutY="40.0" />
+                        <Button fx:id="searchScheduledClassButton" layoutX="80.0" layoutY="385.0" mnemonicParsing="false" onAction="#loadAddClassPane" onMouseClicked="#searchForScheduledClasses" prefHeight="39.0" prefWidth="160.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Search" textFill="#12123a">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </opaqueInsets>
+                        </Button>
+                        <ListView fx:id="searchScheduledClassListView" layoutX="60.0" layoutY="142.0" onMouseClicked="#editSchedule" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="scheduleLogoPane" layoutX="320.0" layoutY="39.0" prefHeight="459.0" prefWidth="480.0" visible="false">
+                     <children>
+                        <ImageView fitHeight="156.0" fitWidth="382.0" layoutX="49.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="scheduleEditPane" layoutX="320.0" layoutY="39.0" prefHeight="459.0" prefWidth="480.0">
+                     <children>
+                        <Button fx:id="editScheduledClassSaveButton" layoutX="165.0" layoutY="385.0" mnemonicParsing="false" onMouseClicked="#saveEditedScheduledClass" prefHeight="38.0" prefWidth="150.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Save" />
+                        <Label layoutX="113.0" layoutY="260.0" prefHeight="27.0" prefWidth="86.0" text="Instructor:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="editScheduledClassInstructorInput" layoutX="218.0" layoutY="260.0" prefWidth="150.0" />
+                        <Label layoutX="113.0" layoutY="205.0" prefHeight="27.0" prefWidth="70.0" text="Class:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="editScheduledClassClassInput" layoutX="218.0" layoutY="205.0" prefWidth="150.0" />
+                        <Label layoutX="113.0" layoutY="150.0" prefHeight="27.0" prefWidth="86.0" text="Duration:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="editScheduledClassDurationInput" focusTraversable="false" layoutX="218.0" layoutY="150.0" prefHeight="25.0" prefWidth="80.0" />
+                        <Label layoutX="298.0" layoutY="150.0" prefHeight="27.0" prefWidth="70.0" text="minutes">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="113.0" layoutY="40.0" prefHeight="27.0" prefWidth="70.0" text="Date:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="editScheduledClassDateInput" layoutX="218.0" layoutY="40.0" prefWidth="150.0" />
+                        <TextField fx:id="editScheduledClassHourInput" focusTraversable="false" layoutX="218.0" layoutY="95.0" prefHeight="25.0" prefWidth="70.0" />
+                        <Label layoutX="113.0" layoutY="95.0" prefHeight="27.0" prefWidth="50.0" text="Time:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="288.0" layoutY="95.0" prefHeight="27.0" prefWidth="10.0" text=":">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="editScheduledClassMinuteInput" focusTraversable="false" layoutX="298.0" layoutY="95.0" prefHeight="25.0" prefWidth="70.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="scheduleRemovePane" layoutX="320.0" layoutY="39.0" prefHeight="459.0" prefWidth="480.0" visible="false">
+                     <children>
+                        <GridPane layoutX="25.0" layoutY="31.0" prefHeight="90.0" prefWidth="430.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="20.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="119.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="101.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="70.0" text="Class:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="scheduledClassNameOutput" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="86.0" GridPane.columnIndex="1" />
+                              <Label prefHeight="27.0" prefWidth="86.0" text="Instructor:" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="scheduledClassInstructorOutput" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="86.0" GridPane.columnIndex="4" />
+                              <Label prefHeight="27.0" prefWidth="70.0" text="Date:" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="scheduledClassDateOutput" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="86.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label prefHeight="27.0" prefWidth="86.0" text="Time:" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="scheduledClassTimeOutput" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="86.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <Label prefHeight="27.0" prefWidth="86.0" text="Duration:" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="scheduledClassDurationOutput" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="86.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label prefHeight="27.0" prefWidth="86.0" text="Capacity:" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="scheduledClassCapacityOutput" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="86.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <TextArea fx:id="scheduledClassMembersOutput" editable="false" layoutX="30.0" layoutY="142.0" prefHeight="200.0" prefWidth="430.0" />
+                        <Button fx:id="removeScheduledClassButton" layoutX="109.0" layoutY="385.0" mnemonicParsing="false" onMouseClicked="#removeScheduledClass" styleClass="importantButton" stylesheets="@styles/styles.css" text="Remove class from schedule" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="scheduleSignUpMemberPane" layoutX="320.0" layoutY="39.0" prefHeight="459.0" prefWidth="480.0" visible="false">
+                     <children>
+                        <ComboBox fx:id="signUpScheduledClassPremiumMembersInput" layoutX="165.0" layoutY="231.0" prefWidth="150.0" />
+                        <Label layoutX="160.0" layoutY="204.0" prefHeight="27.0" prefWidth="160.0" text="Premium members:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="signUpMemberButton" layoutX="158.0" layoutY="385.0" mnemonicParsing="false" onMouseClicked="#addPremiumMemberToScheduledClass" styleClass="importantButton" stylesheets="@styles/styles.css" text="Sign up member" />
+                        <Label layoutX="55.0" layoutY="25.0" prefHeight="70.0" prefWidth="371.0" text="Select a specific premium member to sign up to the selected class." wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="scheduleCancelMemberPane" layoutX="320.0" layoutY="39.0" prefHeight="459.0" prefWidth="480.0" visible="false">
+                     <children>
+                        <ComboBox fx:id="cancelScheduledClassAttendingMemberInput" layoutX="173.0" layoutY="237.0" prefWidth="150.0" />
+                        <Label layoutX="166.0" layoutY="210.0" prefHeight="27.0" prefWidth="165.0" text="Attending members:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="cancelMemberButton" layoutX="107.0" layoutY="385.0" mnemonicParsing="false" onMouseClicked="#cancelMemberAttendance" styleClass="importantButton" stylesheets="@styles/styles.css" text="Cancel member's attendance" />
+                        <Label layoutX="55.0" layoutY="25.0" prefHeight="70.0" prefWidth="371.0" text="Select a member attending the selected class in order to remove it." wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="scheduleExportPane" layoutX="-2.0" layoutY="39.0" prefHeight="459.0" prefWidth="802.0" visible="false">
+                     <children>
+                        <TextArea fx:id="scheduleExportScheduleOutput" layoutX="25.0" layoutY="93.0" prefHeight="279.0" prefWidth="751.0" />
+                        <Button fx:id="scheduleExportButton" layoutX="320.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#exportToXml" styleClass="importantButton" stylesheets="@styles/styles.css" text="Export Schedule" />
+                        <GridPane layoutX="75.0" layoutY="32.0" prefHeight="30.0" prefWidth="652.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="105.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="44.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="85.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="111.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="47.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="208.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="65.0" text="Month:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="scheduleExportMonthInput" prefWidth="150.0" GridPane.columnIndex="1" />
+                              <Label prefHeight="27.0" prefWidth="40.0" text="Year:" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="scheduleExportYearInput" GridPane.columnIndex="4" />
+                              <Button fx:id="scheduleExportGetScheduleButton" mnemonicParsing="false" onMouseClicked="#getSchedule" prefHeight="25.0" prefWidth="180.0" styleClass="importantButton" stylesheets="@styles/styles.css" text="Get schedule" GridPane.columnIndex="6" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
